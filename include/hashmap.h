@@ -74,7 +74,7 @@ public:
         return bucket.contains(key);
     }
 
-    mapped_type operator[](const_key_reference key) {
+    mapped_type& operator[](const_key_reference key) {
         int idx = idx_by_key(key);
         auto elements = m_buckets[idx].content();
         for (auto elem = elements.begin(); elem != elements.end(); ++elem)

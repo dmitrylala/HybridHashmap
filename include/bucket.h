@@ -56,6 +56,9 @@ public:
 
     // modifiers
     constexpr void add(const_reference key_val) {
+        if (contains(key_val.first))
+            return;
+            
         if (!is_cache_full()) {
             m_cache.push_back(key_val);
             return;
