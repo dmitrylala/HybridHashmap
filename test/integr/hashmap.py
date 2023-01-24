@@ -21,6 +21,23 @@ SCRIPT_PATH = "./build/hashmap"
                 "language": "english",
             },
         ),
+        (
+            {
+                "a": "b",
+                "b": "c",
+                "c": "d",
+            },
+            {
+                "a": "c",
+            },
+            {
+                "b",
+            },
+            {
+                "a": "c",
+                "c": "d",
+            },
+        ),
     ]
 )
 def test_hashmap(src, modify, remove, gt_result):

@@ -117,3 +117,19 @@ TEST_CASE( "copying buckets", "[bucket]") {
     verify(b);
     verify(d);
 }
+
+TEST_CASE( "same keys", "[bucket]" ) {
+    Bucket<int, int> b;
+
+    b.add(std::pair<int, int>(1, 1));
+    b.add(std::pair<int, int>(1, 2));
+    b.add(std::pair<int, int>(1, 3));
+
+
+    REQUIRE( b.size() == 1 );
+    REQUIRE( b.capacity() == DEFAULT_CACHE_SIZE );
+    REQUIRE( b.empty() == false );
+    REQUIRE( join(b.data()) == "1 1" );
+    REQUIRE( join(b.cache()) == "1 1" );
+    REQUIRE( join(b.list()) == "" );
+}
